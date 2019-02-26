@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecipeSearchController: UIViewController {
   
@@ -24,15 +25,15 @@ class RecipeSearchController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
+    tableView.delegate = self
     searchBar.delegate = self
-    
     searchRecipes(keyword: "salmon")
   }
   
   private func searchRecipes(keyword: String) {
-    EdamamAPIClient.searchRecipes(keyword: keyword) { (error, recipes) in
-      if let error = error {
-        print("searching recipes error: \(error)")
+    EdamamAPIClient.searchRecipes(keyword: keyword) { (appError, recipes) in
+      if let appError = appError {
+        self.showAlert(title: "Search Recipes Error", message: appError.errorMessage(), style: .alert)
       } else if let recipes = recipes {
         self.recipes = recipes
       }
@@ -59,12 +60,21 @@ extension RecipeSearchController: UITableViewDataSource {
     let recipe = recipes[indexPath.row]
     cell.textLabel?.text = recipe.label
     cell.detailTextLabel?.text = recipe.source
+    cell.imageView?.kf.setImage(with: URL(string: recipe.image),
+                                placeholder: UIImage(named: "placeholder-image"))
     return cell
+  }
+}
+
+extension RecipeSearchController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 120 
   }
 }
 
 extension RecipeSearchController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
     guard let text = searchBar.text,
       !text.isEmpty,
       let searchText = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
