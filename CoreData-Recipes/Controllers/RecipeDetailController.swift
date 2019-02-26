@@ -12,6 +12,7 @@ import Kingfisher
 
 class RecipeDetailController: UIViewController {
   @IBOutlet weak var recipeImageView: UIImageView!
+  @IBOutlet weak var recipeIngredientsLabel: UILabel!
   
   private var context = AppDelegate.container?.viewContext
   public var recipeInfo: RecipeInfo!
@@ -23,6 +24,11 @@ class RecipeDetailController: UIViewController {
   
   private func updateUI() {
     navigationItem.title = recipeInfo.label
+    
+    let ingredients = recipeInfo.ingredientLines.map { $0.replacingOccurrences(of: ",", with: "") }
+                                              .map { $0 + "\n" }
+    
+    recipeIngredientsLabel.text = ingredients.joined()
     // more here: https://github.com/onevcat/Kingfisher/wiki/Cheat-Sheet
     recipeImageView.kf.indicatorType = .activity
     recipeImageView.kf.setImage(with: URL(string: recipeInfo.image), placeholder: UIImage(named: "placeholder-image"))
