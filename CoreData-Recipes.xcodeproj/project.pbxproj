@@ -20,9 +20,11 @@
 		573D046F222457E5001C1267 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D046E222457E5001C1267 /* SecretKeys.swift */; };
 		573D04712224A8AA001C1267 /* RecipeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D04702224A8AA001C1267 /* RecipeDetailController.swift */; };
 		573D04752224C164001C1267 /* SavedRecipesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D04742224C164001C1267 /* SavedRecipesController.swift */; };
+		D7E5315F8A792EE03FAFBBB9 /* Pods_CoreData_Recipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878A7DC2DB173B45AED0EBF0 /* Pods_CoreData_Recipes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52358C0DBE45D02FF6A156F6 /* Pods-CoreData-Recipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreData-Recipes.debug.xcconfig"; path = "Target Support Files/Pods-CoreData-Recipes/Pods-CoreData-Recipes.debug.xcconfig"; sourceTree = "<group>"; };
 		573D044C22244606001C1267 /* CoreData-Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreData-Recipes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		573D044F22244606001C1267 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		573D045122244606001C1267 /* RecipeSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchController.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		573D046E222457E5001C1267 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		573D04702224A8AA001C1267 /* RecipeDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailController.swift; sourceTree = "<group>"; };
 		573D04742224C164001C1267 /* SavedRecipesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesController.swift; sourceTree = "<group>"; };
+		878A7DC2DB173B45AED0EBF0 /* Pods_CoreData_Recipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreData_Recipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E7BA136217EA217698E0B6 /* Pods-CoreData-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreData-Recipes.release.xcconfig"; path = "Target Support Files/Pods-CoreData-Recipes/Pods-CoreData-Recipes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E5315F8A792EE03FAFBBB9 /* Pods_CoreData_Recipes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,8 @@
 			children = (
 				573D044E22244606001C1267 /* CoreData-Recipes */,
 				573D044D22244606001C1267 /* Products */,
+				DD277A4D3606C9AD3F86D2E1 /* Pods */,
+				DFCCF32620F144974FC41A29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +127,24 @@
 			path = "Network Services";
 			sourceTree = "<group>";
 		};
+		DD277A4D3606C9AD3F86D2E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				52358C0DBE45D02FF6A156F6 /* Pods-CoreData-Recipes.debug.xcconfig */,
+				E9E7BA136217EA217698E0B6 /* Pods-CoreData-Recipes.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DFCCF32620F144974FC41A29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				878A7DC2DB173B45AED0EBF0 /* Pods_CoreData_Recipes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 573D046122244607001C1267 /* Build configuration list for PBXNativeTarget "CoreData-Recipes" */;
 			buildPhases = (
+				06FCDF622E0EA3A86357A652 /* [CP] Check Pods Manifest.lock */,
 				573D044822244606001C1267 /* Sources */,
 				573D044922244606001C1267 /* Frameworks */,
 				573D044A22244606001C1267 /* Resources */,
+				9CC29B08365F70B19FE038AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +212,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06FCDF622E0EA3A86357A652 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoreData-Recipes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CC29B08365F70B19FE038AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoreData-Recipes/Pods-CoreData-Recipes-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoreData-Recipes/Pods-CoreData-Recipes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		573D044822244606001C1267 /* Sources */ = {
@@ -344,6 +418,7 @@
 		};
 		573D046222244607001C1267 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52358C0DBE45D02FF6A156F6 /* Pods-CoreData-Recipes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +437,7 @@
 		};
 		573D046322244607001C1267 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E7BA136217EA217698E0B6 /* Pods-CoreData-Recipes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

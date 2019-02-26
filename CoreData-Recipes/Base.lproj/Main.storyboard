@@ -88,7 +88,18 @@
                     <view key="view" contentMode="scaleToFill" id="Hsu-fs-j8B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="XbM-dV-bQE">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XbM-dV-bQE" firstAttribute="leading" secondItem="HRr-Nw-ixP" secondAttribute="leading" id="XJj-3l-9ll"/>
+                            <constraint firstItem="XbM-dV-bQE" firstAttribute="top" secondItem="HRr-Nw-ixP" secondAttribute="top" id="f2K-fW-M6p"/>
+                            <constraint firstItem="XbM-dV-bQE" firstAttribute="bottom" secondItem="HRr-Nw-ixP" secondAttribute="bottom" id="m8Q-yz-4yZ"/>
+                            <constraint firstItem="XbM-dV-bQE" firstAttribute="trailing" secondItem="HRr-Nw-ixP" secondAttribute="trailing" id="xf2-Wg-pGC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HRr-Nw-ixP"/>
                     </view>
                     <navigationItem key="navigationItem" id="R2I-On-aKH">
@@ -98,6 +109,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="recipeImageView" destination="XbM-dV-bQE" id="wmY-We-Hha"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HvD-bd-8Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,4 +232,7 @@
             <point key="canvasLocation" x="2088.8000000000002" y="1029.5352323838081"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder-image" width="512" height="512"/>
+    </resources>
 </document>
