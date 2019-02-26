@@ -59,6 +59,8 @@ extension RecipeSearchController: UITableViewDataSource {
     let recipe = recipes[indexPath.row]
     cell.textLabel?.text = recipe.label
     cell.detailTextLabel?.text = recipe.source
+    // more here: https://github.com/onevcat/Kingfisher/wiki/Cheat-Sheet
+    cell.imageView?.kf.setImage(with: URL(string: recipe.image), placeholder: UIImage(named: "placeholder-image"))
     return cell
   }
 }

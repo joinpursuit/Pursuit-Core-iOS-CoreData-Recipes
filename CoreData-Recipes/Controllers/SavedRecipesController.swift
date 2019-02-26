@@ -66,6 +66,8 @@ extension SavedRecipesController: UITableViewDataSource {
     if let recipe = fetchResultsController?.object(at: indexPath) {
       cell.textLabel?.text = recipe.label
       cell.detailTextLabel?.text = recipe.source?.name
+      // more here: https://github.com/onevcat/Kingfisher/wiki/Cheat-Sheet
+      cell.imageView?.kf.setImage(with: URL(string: recipe.imageURL!), placeholder: UIImage(named: "placeholder-image"))
     }
     return cell
   }
