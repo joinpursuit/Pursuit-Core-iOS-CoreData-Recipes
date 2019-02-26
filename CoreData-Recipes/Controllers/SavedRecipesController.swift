@@ -20,6 +20,7 @@ class SavedRecipesController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
+    tableView.delegate = self
     configureFetchResultsController()
   }
   
@@ -52,8 +53,6 @@ class SavedRecipesController: UIViewController {
 
 extension SavedRecipesController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // TODO: use fetchresultscontroller to get number of objects
-
     if let sections = fetchResultsController?.sections,
       sections.count > 0 {
       return sections[section].numberOfObjects
@@ -64,13 +63,20 @@ extension SavedRecipesController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
-    // use fetchresultscontroller to get indexpath for current object
-
     if let recipe = fetchResultsController?.object(at: indexPath) {
       cell.textLabel?.text = recipe.label
       cell.detailTextLabel?.text = recipe.source?.name
     }
     return cell
+  }
+}
+
+extension SavedRecipesController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if let recipe = fetchResultsController?.object(at: indexPath) {
+      container?.viewContext.delete(recipe)
+      try? container?.viewContext.save()
+    }
   }
 }
 
@@ -108,9 +114,5 @@ extension SavedRecipesController: NSFetchedResultsControllerDelegate {
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
-  }
-  
-  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String? {
-    return nil
   }
 }
