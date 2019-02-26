@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class RecipeDetailController: UIViewController {
-  
+  private var context = AppDelegate.container?.viewContext
   public var recipeInfo: RecipeInfo!
   
   override func viewDidLoad() {
@@ -18,6 +19,16 @@ class RecipeDetailController: UIViewController {
   }
   
   @IBAction func saveRecipeButtonPressed(_ sender: UIBarButtonItem) {
-    print("saved button pressed")
+    guard let context = context else {
+      return
+    }
+    AppDelegate.container?.viewContext.perform {
+      do {
+        let _ = try Recipe.createRecipe(recipeInfo: self.recipeInfo, context: context)
+        try context.save()
+      } catch {
+        print("saving recipe error: \(error)")
+      }
+    }
   }
 }
