@@ -49,6 +49,13 @@ class Recipe: NSManagedObject {
     recipe.label = recipeInfo.label
     recipe.yield = Int32(recipeInfo.yield)
     
+    // saving image data to Core Data
+    let imageView = UIImageView()
+    imageView.kf.setImage(with: URL(string: recipeInfo.image))
+    if let imageData = imageView.image?.jpegData(compressionQuality: 0.5) {
+      recipe.imageData = imageData as NSObject
+    }
+    
     // get the source matching the passed in "name" from this method
     do {
       let source = try Source.createSource(name: recipeInfo.source, context: context)

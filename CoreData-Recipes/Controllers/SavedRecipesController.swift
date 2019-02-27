@@ -65,8 +65,18 @@ extension SavedRecipesController: UITableViewDataSource {
     if let recipe = fetchResultsController?.object(at: indexPath) {
       cell.textLabel?.text = recipe.label
       cell.detailTextLabel?.text = recipe.source?.name
-      cell.imageView?.kf.setImage(with: URL(string: recipe.imageURL!),
-                                  placeholder: UIImage(named: "placeholder-image"))
+      
+      // reloaded the imageData saved to Core Data
+      cell.imageView?.image = UIImage(named: "placeholder-image")
+      if let imageData = recipe.imageData as? Data {
+        DispatchQueue.global().async {
+          let image = UIImage(data: imageData)
+          DispatchQueue.main.async {
+            cell.imageView?.image = image
+          }
+        }
+      }
+      
     }
     return cell
   }

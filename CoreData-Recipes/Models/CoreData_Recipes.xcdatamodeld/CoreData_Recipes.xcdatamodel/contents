@@ -3,6 +3,7 @@
     <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="category">
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="healthLabels" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ingredientLines" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,7 +15,7 @@
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="source" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Recipe" positionX="207.5234375" positionY="-2.0546875" width="128" height="165"/>
         <element name="Source" positionX="-79.13671875" positionY="27.66015625" width="128" height="73"/>
-        <element name="Recipe" positionX="207.5234375" positionY="-2.0546875" width="128" height="148"/>
     </elements>
 </model>

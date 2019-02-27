@@ -31,11 +31,12 @@ class RecipeSearchController: UIViewController {
   }
   
   private func searchRecipes(keyword: String) {
-    EdamamAPIClient.searchRecipes(keyword: keyword) { (appError, recipes) in
+    // using a capture list to break strong reference cycle
+    EdamamAPIClient.searchRecipes(keyword: keyword) { [weak self] (appError, recipes) in
       if let appError = appError {
-        self.showAlert(title: "Search Recipes Error", message: appError.errorMessage(), style: .alert)
+        self?.showAlert(title: "Search Recipes Error", message: appError.errorMessage(), style: .alert)
       } else if let recipes = recipes {
-        self.recipes = recipes
+        self?.recipes = recipes
       }
     }
   }
