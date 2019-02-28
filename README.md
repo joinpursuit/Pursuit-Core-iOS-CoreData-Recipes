@@ -7,7 +7,7 @@ Using Core Data. User can save a recipe. A recipe has a to-one relationship to a
 ## Installation Procedures for this app
 
 - clone this repo 
-- all Pods are included (no ```pod install``` required) 
+- all Pods are included (```pod install``` not required) 
 - open up the CoreData-Recipes.xcworkspace project
 - add your [Edamam](https://developer.edamam.com/edamam-recipe-api) **api key** and **app id** to the SecretKeys.swift file 
 - run the app on your simulator or device
